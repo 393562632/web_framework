@@ -1,4 +1,4 @@
-package com.study.framework;
+package com.study.framework.step1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by jackeyChen on 2016/9/18.
  */
 @WebServlet("/hello")
-public class chapter1 extends HttpServlet{
+public class Step1 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
