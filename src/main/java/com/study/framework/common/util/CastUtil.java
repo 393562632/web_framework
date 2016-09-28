@@ -4,7 +4,7 @@ package com.study.framework.common.util;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Created by jackeyChen on 2016/9/20.
+ * Created by ChenQiang on 2016/9/20.
  */
 public final class CastUtil {
 

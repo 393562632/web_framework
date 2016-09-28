@@ -1,8 +1,8 @@
 package com.study.framework.common.util;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,10 +10,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by jackeyChen on 2016/9/20.
+ * Created by ChenQiang on 2016/9/20.
  */
 public class PropsUtil {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
+    static Logger LOGGER = LogManager.getLogger(PropsUtil.class.getName());
 
     /**
      * 加载属性文件
@@ -61,7 +61,7 @@ public class PropsUtil {
      */
     public static String getString(Properties props, String key, String defaultValue) {
         String value = defaultValue;
-        if (props.contains(key)) {
+        if (props.containsKey(key)) {
             value = props.getProperty(key);
         }
         return value;
