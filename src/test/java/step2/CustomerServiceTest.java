@@ -1,19 +1,14 @@
 package step2;
 
-import com.study.framework.common.helper.DatabaseHelper;
-import com.study.framework.common.util.StringUtil;
-import com.study.framework.step2.model.Customer;
-import com.study.framework.step2.service.CustomerService;
+import com.study.framework.core.helper.DatabaseHelper;
+import com.study.app.step2.model.Customer;
+import com.study.app.step2.service.CustomerService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

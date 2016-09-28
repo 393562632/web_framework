@@ -1,4 +1,4 @@
-package com.study.framework.step2.controller;
+package com.study.app.step2.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

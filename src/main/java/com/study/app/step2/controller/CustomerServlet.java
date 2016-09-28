@@ -1,7 +1,7 @@
-package com.study.framework.step2.controller;
+package com.study.app.step2.controller;
 
-import com.study.framework.step2.model.Customer;
-import com.study.framework.step2.service.CustomerService;
+import com.study.app.step2.model.Customer;
+import com.study.app.step2.service.CustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,9 +1,4 @@
-package com.study.framework.step2.model;
-
-import org.apache.commons.dbutils.ResultSetHandler;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
+package com.study.app.step2.model;
 
 /**
  * Created by jackeyChen on 2016/9/19.

@@ -1,7 +1,7 @@
-package com.study.framework.step2.service;
+package com.study.app.step2.service;
 
-import com.study.framework.common.helper.DatabaseHelper;
-import com.study.framework.step2.model.Customer;
+import com.study.framework.core.helper.DatabaseHelper;
+import com.study.app.step2.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

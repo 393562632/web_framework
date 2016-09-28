@@ -1,4 +1,4 @@
-package com.study.framework.step1;
+package com.study.app.step1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
