@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.Set;
 
 /**
@@ -13,12 +15,11 @@ import java.util.Set;
  */
 public class ConfigHeplerTest {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(ConfigHeplerTest.class);
 
     @Test
     public void getClassSetTest() {
-//        String url = "com.study.framework";
-//        Set<Class<?>> set = ConfigHelper.getClassSet(url);
-//        System.out.println(set);
+
+  //      Enumeration<URL> urls = getClassLoader().getResources(packageName.replace(".", "/"));
     }
 }

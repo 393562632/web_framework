@@ -50,6 +50,16 @@ public class ClassUtil {
     }
 
     /**
+     * 初始化加载类
+     *
+     * @param className
+     * @return
+     */
+    public static Class<?> loadClass(String className) {
+        return loadClass(className, true);
+    }
+
+    /**
      * 获取指定包名下的所有类
      *
      * @return
@@ -57,7 +67,8 @@ public class ClassUtil {
     public static Set<Class<?>> getClassSet(String packageName) {
         Set<Class<?>> classSet = new HashSet<Class<?>>();
         try {
-            Enumeration<URL> urls = getClassLoader().getResources(packageName.replace(".", "/"));
+            String pathTemp = packageName.replace(".", "/");
+            Enumeration<URL> urls = getClassLoader().getResources(pathTemp);
             while (urls.hasMoreElements()) {
                 URL url = urls.nextElement();
                 if (url != null) {
@@ -93,12 +104,13 @@ public class ClassUtil {
 
 
     public static void addClass(Set<Class<?>> classSet, String packagePath, String packageName) {
-        File[] files = new File(packageName).listFiles(new FileFilter() {
+        File[] files = new File(packagePath).listFiles(new FileFilter() {
             @Override
             public boolean accept(File file) {
                 return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
             }
         });
+
         for (File file : files) {
             String fileName = file.getName();
             if (file.isFile()) {

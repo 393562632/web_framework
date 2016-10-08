@@ -1,7 +1,7 @@
 package step2;
 
 import com.study.framework.core.helper.DatabaseHelper;
-import com.study.app.step2.model.Customer;
+import com.study.app.step3.model.Customer;
 import com.study.app.step2.service.CustomerService;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,6 +1,6 @@
 package com.study.app.step2.controller;
 
-import com.study.app.step2.model.Customer;
+import com.study.app.step3.model.Customer;
 import com.study.app.step2.service.CustomerService;
 
 import javax.servlet.ServletException;

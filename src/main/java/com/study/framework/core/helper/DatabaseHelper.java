@@ -2,7 +2,7 @@ package com.study.framework.core.helper;
 
 import com.study.framework.common.util.CollectionUtil;
 import com.study.framework.common.util.PropsUtil;
-import com.study.app.step2.model.Customer;
+import com.study.app.step3.model.Customer;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;

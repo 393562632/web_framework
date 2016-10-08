@@ -1,4 +1,4 @@
-package com.study.app.step2.model;
+package com.study.app.step3.model;
 
 /**
  * Created by jackeyChen on 2016/9/19.
