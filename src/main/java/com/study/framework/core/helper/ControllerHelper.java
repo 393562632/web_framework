@@ -25,27 +25,29 @@ public class ControllerHelper {
         //获取所有的Controller类
         Set<Class<?>> controllerClassSet = ClassHelper.getControllerClassSet();
         //遍历这些Controller类
-        if (CollectionUtil.isNotEmpty(controllerClassSet)) for (Class<?> controllerClass : controllerClassSet) {
-            //获取Controller类中的方法。
-            Method[] methods = controllerClass.getDeclaredMethods();
-            if (ArrayUtil.isNotEmpty(methods)) {
-                //遍历这些Controller中的方法
-                for (Method method : methods) {
-                    //判断当前方法是否有Action注解
-                    if (method.isAnnotationPresent(Action.class)) {
-                        //从Action注解中获取URL映射规则
-                        Action action = method.getDeclaredAnnotation(Action.class);
-                        String mapping = action.value();
-                        //验证URL映射规则
-                        if (mapping.matches("\\w+/\\w*")) {
-                            String[] arrary = mapping.split(":");
-                            if (ArrayUtil.isNotEmpty(arrary) && arrary.length == 2) {
-                                //获取请求方法与请求路径
-                                String requestMethod = arrary[0];
-                                String requestPath = arrary[1];
-                                Request request = new Request(requestMethod, requestPath);
-                                Handler handler = new Handler(controllerClass, method);
-                                ACTION_MAP.put(request, handler);
+        if (CollectionUtil.isNotEmpty(controllerClassSet)) {
+            for (Class<?> controllerClass : controllerClassSet) {
+                //获取Controller类中的方法。
+                Method[] methods = controllerClass.getDeclaredMethods();
+                if (ArrayUtil.isNotEmpty(methods)) {
+                    //遍历这些Controller中的方法
+                    for (Method method : methods) {
+                        //判断当前方法是否有Action注解
+                        if (method.isAnnotationPresent(Action.class)) {
+                            //从Action注解中获取URL映射规则
+                            Action action = method.getDeclaredAnnotation(Action.class);
+                            String mapping = action.value();
+                            //验证URL映射规则
+                            if (mapping.matches("\\w+:/\\w*")) {
+                                String[] arrary = mapping.split(":");
+                                if (ArrayUtil.isNotEmpty(arrary) && arrary.length == 2) {
+                                    //获取请求方法与请求路径
+                                    String requestMethod = arrary[0];
+                                    String requestPath = arrary[1];
+                                    Request request = new Request(requestMethod, requestPath);
+                                    Handler handler = new Handler(controllerClass, method);
+                                    ACTION_MAP.put(request, handler);
+                                }
                             }
                         }
                     }

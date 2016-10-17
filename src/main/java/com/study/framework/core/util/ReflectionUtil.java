@@ -1,9 +1,11 @@
 package com.study.framework.core.util;
 
+import com.study.framework.core.bean.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -30,6 +32,31 @@ public class ReflectionUtil {
     }
 
     /**
+     * 方法反射调用
+     *
+     * @param obj
+     * @param method
+     * @param args
+     * @return
+     */
+    public static Object invokeMethod(Object obj, Method method, Param args) {
+        int size = args.getParamNo();
+        Object result = null;
+        try {
+            if (size == 0) {
+                result = method.invoke(obj);
+            } else {
+                result = method.invoke(obj, args);
+            }
+        } catch (Exception e) {
+            LOGGER.error("invork method failure", e);
+            throw new RuntimeException(e);
+        }
+
+        return result;
+    }
+
+    /**
      * 调用方法
      *
      * @param obj
@@ -41,7 +68,11 @@ public class ReflectionUtil {
         Object result = null;
         try {
             method.setAccessible(true);
-            result = method.invoke(obj, args);
+            if (args.length == 0) {
+                result = method.invoke(obj);
+            } else {
+                result = method.invoke(obj, args);
+            }
         } catch (Exception e) {
             LOGGER.error("invork method failure", e);
             throw new RuntimeException(e);
@@ -52,9 +83,9 @@ public class ReflectionUtil {
     /**
      * 设置成员变量的值
      *
-     * @param obj
-     * @param field
-     * @param value
+     * @param obj   类的实例
+     * @param field 类的属性
+     * @param value 类的属性所对应的实例
      */
     public static void setField(Object obj, Field field, Object value) {
         try {

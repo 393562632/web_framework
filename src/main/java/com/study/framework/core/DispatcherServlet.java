@@ -14,6 +14,8 @@ import com.study.framework.core.util.CodeUtil;
 import com.study.framework.core.util.JsonUtil;
 import com.study.framework.core.util.ReflectionUtil;
 import com.study.framework.core.util.StreamUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -35,14 +37,16 @@ import java.util.Map;
  */
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet {
+    public static final Logger LOGGER = LoggerFactory.getLogger(DispatcherServlet.class);
+
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         //初始化相关的Helper类
         HelperLoader.init();
         //获取ServletContext对象（用于注册Servlet）
         ServletContext servletContext = servletConfig.getServletContext();
-        //注册处理JSP的Servlet
-        ServletRegistration jspServlet = servletContext.getServletRegistration(".jsp");
+        //注册去处理JSP的Servlet
+        ServletRegistration jspServlet = servletContext.getServletRegistration("jsp");
         jspServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
         //注册处理静态资源的默认Servlet
         ServletRegistration defaultServlet = servletContext.getServletRegistration("default");
@@ -100,6 +104,7 @@ public class DispatcherServlet extends HttpServlet {
                         for (Map.Entry<String, Object> entry : model.entrySet()) {
                             request.setAttribute(entry.getKey(), entry.getValue());
                         }
+                        if (LOGGER.isDebugEnabled()) LOGGER.debug("redirect to " + ConfigHelper.getAppJspPath() + path);
                         request.getRequestDispatcher(ConfigHelper.getAppJspPath() + path).forward(request, response);
                     }
                 }
@@ -118,6 +123,4 @@ public class DispatcherServlet extends HttpServlet {
             }
         }
     }
-
-
 }
