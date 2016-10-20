@@ -47,11 +47,11 @@ public class DispatcherServlet extends HttpServlet {
         ServletContext servletContext = servletConfig.getServletContext();
         //注册去处理JSP的Servlet
         ServletRegistration jspServlet = servletContext.getServletRegistration("jsp");
-        jspServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
+        jspServlet.addMapping(ConfigHelper.getAppJspPath() + "*");
         //注册处理静态资源的默认Servlet
         ServletRegistration defaultServlet = servletContext.getServletRegistration("default");
         defaultServlet.addMapping(ConfigHelper.getAppAssetPath() + "*");
-    }
+}
 
 
     @Override
@@ -66,6 +66,7 @@ public class DispatcherServlet extends HttpServlet {
             Class<?> controllerClass = handler.getControllerClass();
             Object controllerBean = Beanhelper.getBean(controllerClass);
             //创建请求参数
+            //get请求参数
             Map<String, Object> paramMap = new HashMap<String, Object>();
             Enumeration<String> paramnames = request.getParameterNames();
             while (paramnames.hasMoreElements()) {
@@ -73,6 +74,7 @@ public class DispatcherServlet extends HttpServlet {
                 String paramValue = request.getParameter(paramName);
                 paramMap.put(paramName, paramValue);
             }
+            //post请求参数
             String body = CodeUtil.decodeURL(StreamUtil.getString(request.getInputStream()));
             if (StringUtil.isNotEmpty(body)) {
                 String[] params = StringUtil.splitsString(body, "&");
@@ -105,7 +107,7 @@ public class DispatcherServlet extends HttpServlet {
                             request.setAttribute(entry.getKey(), entry.getValue());
                         }
                         if (LOGGER.isDebugEnabled()) LOGGER.debug("redirect to " + ConfigHelper.getAppJspPath() + path);
-                        request.getRequestDispatcher(ConfigHelper.getAppJspPath() + path).forward(request, response);
+                       request.getRequestDispatcher(ConfigHelper.getAppJspPath() + path).forward(request, response);
                     }
                 }
             } else if (result instanceof Data) {
@@ -117,6 +119,7 @@ public class DispatcherServlet extends HttpServlet {
                     response.setCharacterEncoding("UTF-8");
                     PrintWriter writer = response.getWriter();
                     String JSON = JsonUtil.toJson(model);
+                    writer.write(JSON);
                     writer.flush();
                     writer.close();
                 }

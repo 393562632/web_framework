@@ -79,6 +79,6 @@ public class ConfigHelper {
      * @return
      */
     public static String getAppAssetPath() {
-        return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.APP_JSP_PACKAGE, "/WEB-INF/asset/");
+        return PropsUtil.getString(CONFIG_PROPS, ConfigConstant.APP_ASSET_PATH, "/WEB-INF/asset/");
     }
 }

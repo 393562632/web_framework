@@ -84,11 +84,16 @@ public class CustomerController {
      * @param param
      * @return
      */
-    @Action("delete:/customer_edit")
+    @Action("delete:/customer_delete")
     public Data delete(Param param) {
         long id = param.getLong("id");
         boolean result = customerService.deleteCustomer(id);
         return new Data(result);
+    }
+
+    @Action("get:/customer_delete")
+    public Data deleteWrapGet(Param param) {
+        return delete(param);
     }
 
 }
