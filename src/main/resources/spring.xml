@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描指定包,将带有@Componet注解的类自动定义为Spring Bean -->
+    <context:component-scan base-package="com.study.aop"/>
+
+    <!-- 配置一个代理 -->
+    <bean id="helloProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 需要代理的接口 -->
+        <property name="interfaces" value="com.study.aop.cglibProxy.Hello"/>
+
+        <!-- 接口实现类 -->
+        <property name="target" ref="helloImpl" />
+
+        <!-- 拦截器名称 也就是增强类名称 SpringBean的id -->
+        <property name="interceptorNames">
+            <!-- 多个值用list,一个值的话直接在 name="interceptorNames"后面添加value属性 -->
+            <list>
+                <value>greetingAroundAdvise</value>
+                <!--<value>greetingThrowAdvice</value>-->
+            </list>
+        </property>
+    </bean>
+</beans>

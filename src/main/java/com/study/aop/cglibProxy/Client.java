@@ -5,7 +5,7 @@ package com.study.aop.cglibProxy;
  */
 public class Client {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
        Hello hello =  CGLibDynamicProxy.getInstance().getProxy(HelloImpl.class);
        hello.say("Hello CGlib Proxy");
     }
