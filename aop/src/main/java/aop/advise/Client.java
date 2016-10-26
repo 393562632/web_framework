@@ -1,7 +1,7 @@
-package com.study.aop.advise;
+package aop.advise;
 
-import com.study.aop.cglibProxy.Hello;
-import com.study.aop.cglibProxy.HelloImpl;
+import aop.cglibProxy.Hello;
+import aop.cglibProxy.HelloImpl;
 import org.springframework.aop.framework.ProxyFactory;
 
 /**

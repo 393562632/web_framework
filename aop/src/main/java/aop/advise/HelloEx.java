@@ -1,4 +1,4 @@
-package com.study.aop.advise;
+package aop.advise;
 
 /**
  * Created by jackeyChen on 2016/10/25.

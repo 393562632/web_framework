@@ -1,7 +1,6 @@
-package com.study.aop.advise;
+package aop.advise;
 
 import org.springframework.aop.AfterReturningAdvice;
-import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -10,14 +9,9 @@ import java.lang.reflect.Method;
  * Created by jackeyChen on 2016/10/25.
  */
 @Component
-public class GreetingBeforeAndAfterAdvise implements MethodBeforeAdvice, AfterReturningAdvice {
+public class GreetingAfterAdvise implements AfterReturningAdvice{
     @Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
         System.out.println("After");
-    }
-
-    @Override
-    public void before(Method method, Object[] args, Object target) throws Throwable {
-        System.out.println("Before");
     }
 }

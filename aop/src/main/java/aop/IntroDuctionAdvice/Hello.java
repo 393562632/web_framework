@@ -1,4 +1,4 @@
-package com.study.aop.JavaProxy;
+package aop.IntroDuctionAdvice;
 
 /**
  * Created by jackeyChen on 2016/10/20.

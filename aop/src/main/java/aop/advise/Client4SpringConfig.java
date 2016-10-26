@@ -1,6 +1,6 @@
-package com.study.aop.advise;
+package aop.advise;
 
-import com.study.aop.cglibProxy.Hello;
+import aop.cglibProxy.Hello;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

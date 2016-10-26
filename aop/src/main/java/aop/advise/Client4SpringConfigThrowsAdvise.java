@@ -1,4 +1,4 @@
-package com.study.aop.advise;
+package aop.advise;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

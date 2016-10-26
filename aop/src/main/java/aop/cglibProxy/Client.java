@@ -1,4 +1,4 @@
-package com.study.aop.cglibProxy;
+package aop.cglibProxy;
 
 /**
  * Created by jackeyChen on 2016/10/25.

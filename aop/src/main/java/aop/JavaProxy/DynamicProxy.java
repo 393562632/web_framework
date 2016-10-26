@@ -1,4 +1,4 @@
-package com.study.aop.JavaProxy;
+package aop.JavaProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
