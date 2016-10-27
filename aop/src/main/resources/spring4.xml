@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描指定包,将带有@Componet注解的类自动定义为Spring Bean -->
+    <context:component-scan base-package="aop.pointCutAdvisor"/>
+
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <!--职位后缀Impl的类生成代理-->
+        <property name="beanNames" value="*Impl"/>
+        <!--增强-->
+        <property name="interceptorNames" value="greetingAroundAdvise"/>
+        <!--代理策略自动优化-->
+        <property name="optimize" value="true"/>
+    </bean>
+
+</beans>

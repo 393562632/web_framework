@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描指定包,将带有@Componet注解的类自动定义为Spring Bean -->
+    <context:component-scan base-package=" aop.pointCutAdvisor"/>
+
+    <!-- 配置一个切面
+         RegexpMethodPointcutAdvisor 正则表达式匹配
+         DefaultPointcutAdvisor 默认切面
+         NameMatchMethodPointcutAdvisor 根据方法名称进行匹配
+         StaticMethodMatcherPointcutAdvisor 用于匹配静态方法的切面
+    -->
+    <bean id="greetingAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!-- 增强 -->
+        <property name="advice" ref="greetingAroundAdvise"/>
+        <!-- 使用切面就必须配置切点,只有切点才会被增强 -->
+        <property name="pattern" value="aop.pointCutAdvisor.GreetingImpl.good.*"/>
+    </bean>
+
+    <!-- 配置一个代理 注意这里没有接口了-->
+    <bean id="greetingProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 接口实现类 -->
+        <property name="target" ref="greetingImpl" />
+
+        <!-- 拦截切面 -->
+        <property name="interceptorNames" value="greetingAdvisor"/>
+
+        <!-- 代理目标类 默认为false -->
+        <property name="proxyTargetClass" value="true"/>
+
+    </bean>
+</beans>
