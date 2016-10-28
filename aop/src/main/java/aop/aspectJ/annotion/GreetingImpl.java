@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class GreetingImpl implements Hello {
+
+    @Tag
     @Override
     public void say(String name) {
         System.out.println("say....." + name);
