@@ -1,4 +1,4 @@
-package com.study.framework.core.config;
+package com.study.framework.core.ioc.config;
 
 /**
  * 提供相关配置项常量

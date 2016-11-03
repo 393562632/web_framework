@@ -1,4 +1,4 @@
-package com.study.framework.core.bean;
+package com.study.framework.core.ioc.bean;
 
 /**
  * Created by jackeyChen on 2016/9/30.

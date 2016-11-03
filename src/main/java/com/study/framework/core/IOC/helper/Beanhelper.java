@@ -1,4 +1,4 @@
-package com.study.framework.core.helper;
+package com.study.framework.core.ioc.helper;
 
 import com.study.framework.core.util.ReflectionUtil;
 
@@ -20,6 +20,13 @@ public final class Beanhelper {
             Object obj = ReflectionUtil.newInstance(beanClass);
             BEAN_MAP.put(beanClass, obj);
         }
+    }
+
+    /**
+     * 设置Bean实例
+     */
+    public static void setBean(Class<?> cls, Object obj) {
+        BEAN_MAP.put(cls, obj);
     }
 
     /**

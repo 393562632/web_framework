@@ -1,4 +1,4 @@
-package com.study.framework.core.bean;
+package com.study.framework.core.ioc.bean;
 
 import com.study.framework.common.util.CastUtil;
 

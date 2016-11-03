@@ -3,11 +3,12 @@ package com.study.app.step3.controller;
 import com.study.app.step3.model.Customer;
 import com.study.app.step3.service.CustomerService;
 import com.study.framework.core.annotation.Action;
+import com.study.framework.core.annotation.Aspect;
 import com.study.framework.core.annotation.Controller;
 import com.study.framework.core.annotation.Inject;
-import com.study.framework.core.bean.Data;
-import com.study.framework.core.bean.Param;
-import com.study.framework.core.bean.View;
+import com.study.framework.core.ioc.bean.Data;
+import com.study.framework.core.ioc.bean.Param;
+import com.study.framework.core.ioc.bean.View;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package com.study.app.step3.service;
 
 import com.study.app.step3.model.Customer;
-import com.study.framework.core.helper.DatabaseHelper;
+import com.study.framework.core.ioc.helper.DatabaseHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,7 @@
-package com.study.framework.core.helper;
+package com.study.framework.core.ioc.helper;
 
 import com.study.framework.common.util.PropsUtil;
-import com.study.framework.core.config.ConfigConstant;
+import com.study.framework.core.ioc.config.ConfigConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

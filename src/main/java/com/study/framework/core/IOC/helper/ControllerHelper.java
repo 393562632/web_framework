@@ -1,10 +1,10 @@
-package com.study.framework.core.helper;
+package com.study.framework.core.ioc.helper;
 
 import com.study.framework.common.util.ArrayUtil;
 import com.study.framework.common.util.CollectionUtil;
 import com.study.framework.core.annotation.Action;
-import com.study.framework.core.bean.Request;
-import com.study.framework.core.handler.Handler;
+import com.study.framework.core.ioc.bean.Request;
+import com.study.framework.core.ioc.handler.Handler;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;

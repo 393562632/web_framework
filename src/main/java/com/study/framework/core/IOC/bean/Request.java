@@ -1,4 +1,4 @@
-package com.study.framework.core.bean;
+package com.study.framework.core.ioc.bean;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

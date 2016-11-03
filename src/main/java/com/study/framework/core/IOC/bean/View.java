@@ -1,4 +1,4 @@
-package com.study.framework.core.bean;
+package com.study.framework.core.ioc.bean;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.study.framework.core.helper;
+package com.study.framework.core.ioc.helper;
 
 import com.study.framework.common.util.ArrayUtil;
 import com.study.framework.common.util.CollectionUtil;
