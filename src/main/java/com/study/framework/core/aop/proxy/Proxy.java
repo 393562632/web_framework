@@ -1,4 +1,6 @@
-package com.study.framework.core.aop;
+package com.study.framework.core.aop.proxy;
+
+import com.study.framework.core.aop.ProxyChen;
 
 /**
  * Created by jackeyChen on 2016/11/1.

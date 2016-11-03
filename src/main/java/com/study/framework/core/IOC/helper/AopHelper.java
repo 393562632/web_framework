@@ -1,8 +1,11 @@
 package com.study.framework.core.ioc.helper;
 
 import com.study.framework.core.annotation.Aspect;
-import com.study.framework.core.aop.AspectProxy;
-import com.study.framework.core.aop.Proxy;
+import com.study.framework.core.aop.proxy.AspectProxy;
+import com.study.framework.core.aop.proxy.Proxy;
+import com.study.framework.core.aop.ProxyManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -11,6 +14,23 @@ import java.util.*;
  * Created by jackeyChen on 2016/11/2.
  */
 public final class AopHelper {
+
+    public static Logger logger =  LoggerFactory.getLogger(AopHelper.class);
+
+    static {
+        try {
+            Map<Class<?>, Set<Class<?>>> proxtMap = createProxMap();
+            Map<Class<?>, List<Proxy>> targetMap = createTargetMap(proxtMap);
+            for(Map.Entry<Class<?>, List<Proxy>> targetEntry : targetMap.entrySet()) {
+                Class<?> targetClass = targetEntry.getKey();
+                List<Proxy> proxyList = targetEntry.getValue();
+                Object proxy = ProxyManager.createProxy(targetClass, proxyList);
+                Beanhelper.setBean(targetClass, proxy);
+            }
+        } catch (Exception e) {
+            logger.info("aop failure", e);
+        }
+    }
 
     /**
      * 获取被 @Aspect 注解标注的所有类，并且不包括他本身。

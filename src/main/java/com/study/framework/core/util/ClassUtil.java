@@ -60,6 +60,15 @@ public class ClassUtil {
     }
 
     /**
+     *  在获取指定包名下的所有类的基础上，加入aop包下的代理类
+     */
+    public static Set<Class<?>> getAllClassSet(String packageName) {
+        Set<Class<?>> set = getClassSet(packageName);
+        set.addAll(getClassSet("com.study.framework.core.aop.proxy.aspect"));
+        return set;
+    }
+
+    /**
      * 获取指定包名下的所有类
      *
      * @return
@@ -101,7 +110,6 @@ public class ClassUtil {
         }
         return classSet;
     }
-
 
     public static void addClass(Set<Class<?>> classSet, String packagePath, String packageName) {
         File[] files = new File(packagePath).listFiles(new FileFilter() {

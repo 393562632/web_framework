@@ -1,5 +1,6 @@
 package com.study.framework.core.aop;
 
+import com.study.framework.core.aop.proxy.Proxy;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;

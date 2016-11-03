@@ -1,8 +1,8 @@
-package com.study.framework.core.aop.aspect;
+package com.study.framework.core.aop.proxy.aspect;
 
 import com.study.framework.core.annotation.Aspect;
 import com.study.framework.core.annotation.Controller;
-import com.study.framework.core.aop.AspectProxy;
+import com.study.framework.core.aop.proxy.AspectProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

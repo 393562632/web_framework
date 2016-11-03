@@ -1,9 +1,6 @@
 package com.study.framework.core.ioc.loader;
 
-import com.study.framework.core.ioc.helper.Beanhelper;
-import com.study.framework.core.ioc.helper.ClassHelper;
-import com.study.framework.core.ioc.helper.ControllerHelper;
-import com.study.framework.core.ioc.helper.IOCHelper;
+import com.study.framework.core.ioc.helper.*;
 import com.study.framework.core.util.ClassUtil;
 
 /**
@@ -11,7 +8,13 @@ import com.study.framework.core.util.ClassUtil;
  */
 public class HelperLoader {
     public static void init() {
-        Class<?>[] classList = {ClassHelper.class, Beanhelper.class, IOCHelper.class, ControllerHelper.class};
+        Class<?>[] classList = {
+                ClassHelper.class,
+                Beanhelper.class,
+                AopHelper.class,
+                IOCHelper.class,
+                ControllerHelper.class
+        };
         for (Class<?> cls : classList) {
             ClassUtil.loadClass(cls.getName());
         }

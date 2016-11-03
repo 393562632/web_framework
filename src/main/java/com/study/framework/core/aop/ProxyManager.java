@@ -1,5 +1,6 @@
 package com.study.framework.core.aop;
 
+import com.study.framework.core.aop.proxy.Proxy;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -17,7 +18,7 @@ public class ProxyManager {
         return (T) Enhancer.create(targetClass, new MethodInterceptor() {
             @Override
             public Object intercept(Object targetObject, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-                return new ProxyChen(targetClass, targetObject, method, methodProxy, objects, proxyList);
+                return new ProxyChen(targetClass, targetObject, method, methodProxy, objects, proxyList).doProxyChen();
             }
         });
     }
