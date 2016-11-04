@@ -4,8 +4,8 @@ import com.study.framework.core.annotation.Aspect;
 import com.study.framework.core.aop.proxy.AspectProxy;
 import com.study.framework.core.aop.proxy.Proxy;
 import com.study.framework.core.aop.ProxyManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -15,7 +15,7 @@ import java.util.*;
  */
 public final class AopHelper {
 
-    public static Logger logger =  LoggerFactory.getLogger(AopHelper.class);
+    static Logger log = LogManager.getLogger(AopHelper.class.getName());
 
     static {
         try {
@@ -28,7 +28,7 @@ public final class AopHelper {
                 Beanhelper.setBean(targetClass, proxy);
             }
         } catch (Exception e) {
-            logger.info("aop failure", e);
+            log.info("aop failure", e);
         }
     }
 

@@ -8,8 +8,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import java.util.Properties;
  */
 public class DatabaseHelper {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(DatabaseHelper.class);
+    static Logger LOGGER = LogManager.getLogger(DatabaseHelper.class.getName());
 
     public static final QueryRunner QUERY_RUNNER = new QueryRunner();
     public static final ThreadLocal<Connection> CONNECTION_LOLDER = new ThreadLocal<>();

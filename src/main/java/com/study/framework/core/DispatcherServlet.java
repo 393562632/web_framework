@@ -14,8 +14,8 @@ import com.study.framework.core.util.CodeUtil;
 import com.study.framework.core.util.JsonUtil;
 import com.study.framework.core.util.ReflectionUtil;
 import com.study.framework.core.util.StreamUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -37,7 +37,7 @@ import java.util.Map;
  */
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet {
-    public static final Logger LOGGER = LoggerFactory.getLogger(DispatcherServlet.class);
+    static Logger LOGGER = LogManager.getLogger(DispatcherServlet.class.getName());
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {

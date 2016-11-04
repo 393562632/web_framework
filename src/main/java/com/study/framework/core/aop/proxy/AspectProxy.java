@@ -1,8 +1,8 @@
 package com.study.framework.core.aop.proxy;
 
 import com.study.framework.core.aop.ProxyChen;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Method;
 
@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  */
 public abstract class AspectProxy implements Proxy {
 
-    private static final Logger logger = LoggerFactory.getLogger(AspectProxy.class);
+    static Logger logger = LogManager.getLogger(AspectProxy.class.getName());
 
     @Override
     public Object doProxy(ProxyChen proxyChen) throws Throwable {

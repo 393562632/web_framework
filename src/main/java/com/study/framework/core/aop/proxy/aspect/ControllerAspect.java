@@ -3,8 +3,8 @@ package com.study.framework.core.aop.proxy.aspect;
 import com.study.framework.core.annotation.Aspect;
 import com.study.framework.core.annotation.Controller;
 import com.study.framework.core.aop.proxy.AspectProxy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Method;
 
@@ -14,8 +14,7 @@ import java.lang.reflect.Method;
 @Aspect(Controller.class)
 public class ControllerAspect extends AspectProxy {
 
-    private static final Logger logger = LoggerFactory.getLogger(AspectProxy.class);
-
+    static Logger logger = LogManager.getLogger(AspectProxy.class.getName());
     /**
      * 执行开始时间
      */

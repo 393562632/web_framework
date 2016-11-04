@@ -3,6 +3,9 @@ package com.study.framework.core.ioc.helper;
 import com.study.framework.core.util.ReflectionUtil;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -12,6 +15,8 @@ import java.util.Set;
  */
 public final class Beanhelper {
 
+    static Logger logger = LogManager.getLogger(Beanhelper.class.getName());
+
     private static final Map<Class<?>, Object> BEAN_MAP = new HashMap<Class<?>, Object>();
 
     static {
@@ -19,6 +24,7 @@ public final class Beanhelper {
         for (Class<?> beanClass : beanClassSet) {
             Object obj = ReflectionUtil.newInstance(beanClass);
             BEAN_MAP.put(beanClass, obj);
+            logger.debug(BEAN_MAP.toString());
         }
     }
 

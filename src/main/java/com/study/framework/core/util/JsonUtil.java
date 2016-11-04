@@ -1,14 +1,14 @@
 package com.study.framework.core.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by jackeyChen on 2016/9/30.
  */
 public class JsonUtil {
-    public static final Logger LOGGER = LoggerFactory.getLogger(JsonUtil.class);
+    static Logger LOGGER = LogManager.getLogger(JsonUtil.class.getName());
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 

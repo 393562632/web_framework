@@ -2,8 +2,8 @@ package com.study.framework.core.ioc.helper;
 
 import com.study.framework.common.util.PropsUtil;
 import com.study.framework.core.ioc.config.ConfigConstant;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Properties;
 
@@ -12,7 +12,7 @@ import java.util.Properties;
  */
 public class ConfigHelper {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(ConfigHelper.class);
+    static Logger logger = LogManager.getLogger(ConfigHelper.class.getName());
 
     /**
      * 加载配置文件

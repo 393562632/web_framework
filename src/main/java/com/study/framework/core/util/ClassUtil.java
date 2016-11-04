@@ -1,8 +1,8 @@
 package com.study.framework.core.util;
 
 import com.study.framework.common.util.StringUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -20,7 +20,7 @@ import java.util.jar.JarFile;
  */
 public class ClassUtil {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
+    static Logger log = LogManager.getLogger(ClassUtil.class.getName());
 
     /**
      * 获取类加载器
@@ -43,7 +43,7 @@ public class ClassUtil {
         try {
             cls = Class.forName(className, isInitialized, getClassLoader());
         } catch (ClassNotFoundException e) {
-            LOGGER.error("load class failure", e);
+            log.error("load class failure", e);
             throw new RuntimeException(e);
         }
         return cls;
@@ -105,7 +105,7 @@ public class ClassUtil {
                 }
             }
         } catch (IOException e) {
-            LOGGER.error("get class set failure", e);
+            log.error("get class set failure", e);
             throw new RuntimeException(e);
         }
         return classSet;

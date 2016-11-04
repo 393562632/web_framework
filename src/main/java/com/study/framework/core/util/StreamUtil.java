@@ -1,7 +1,7 @@
 package com.study.framework.core.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  * Created by jackeyChen on 2016/9/30.
  */
 public class StreamUtil {
-    public static final Logger LOGGER = LoggerFactory.getLogger(StreamUtil.class);
+    static Logger logger = LogManager.getLogger(StreamUtil.class.getName());
 
     /**
      * 从输入流中获取字符
@@ -26,7 +26,7 @@ public class StreamUtil {
                 sb.append(line);
             }
         } catch (Exception e) {
-            LOGGER.error("get string failure", e);
+            logger.error("get string failure", e);
            throw new RuntimeException(e);
         }
         return sb.toString();

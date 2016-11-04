@@ -1,7 +1,7 @@
 package com.study.framework.core.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -11,7 +11,7 @@ import java.net.URLEncoder;
  * Created by jackeyChen on 2016/9/30.
  */
 public class CodeUtil {
-    public static final Logger LOGGER = LoggerFactory.getLogger(CodeUtil.class);
+    static Logger LOGGER = LogManager.getLogger(CodeUtil.class.getName());
 
     /**
      * 将URL编码

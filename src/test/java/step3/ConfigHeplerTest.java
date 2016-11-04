@@ -2,8 +2,9 @@ package step3;
 
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 
 /**
@@ -11,11 +12,10 @@ import org.slf4j.LoggerFactory;
  */
 public class ConfigHeplerTest {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ConfigHeplerTest.class);
+    static Logger logger = LogManager.getLogger(ConfigHeplerTest.class.getName());
 
     @Test
     public void getClassSetTest() {
-
-  //      Enumeration<URL> urls = getClassLoader().getResources(packageName.replace(".", "/"));
+        logger.error("wqer");
     }
 }

@@ -1,8 +1,8 @@
 package com.study.framework.core.util;
 
 import com.study.framework.core.ioc.bean.Param;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  * Created by jackeyChen on 2016/9/28.
  */
 public class ReflectionUtil {
-    private static Logger LOGGER = LoggerFactory.getLogger(ReflectionUtil.class);
+    static Logger LOGGER = LogManager.getLogger(ReflectionUtil.class.getName());
 
     /**
      * 创建类的实列

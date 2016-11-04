@@ -2,8 +2,8 @@ package com.study.app.step3.service;
 
 import com.study.app.step3.model.Customer;
 import com.study.framework.core.ioc.helper.DatabaseHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class CustomerService {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+    static Logger logger = LogManager.getLogger(CustomerService.class.getName());
 
 
     /**
