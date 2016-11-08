@@ -1,6 +1,7 @@
 package com.study.app.step3.service;
 
 import com.study.app.step3.model.Customer;
+import com.study.framework.core.annotation.Transaction;
 import com.study.framework.core.ioc.helper.DatabaseHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +33,7 @@ public class CustomerService {
      * @param keyWord
      * @return
      */
+    @Transaction
     public Customer getCustomer(Long id) {
         String sql = "select * from customer where id = ?";
         return DatabaseHelper.queryEntity(Customer.class, sql, id);
@@ -44,10 +46,12 @@ public class CustomerService {
      * @param fileMap
      * @return
      */
+    @Transaction
     public Boolean createCustomer(Map<String, Object> fileMap) {
         return DatabaseHelper.insertEntity(Customer.class, fileMap);
     }
 
+    @Transaction
     public Boolean updateCustomer(long id, Map<String, Object> fileMap) {
         return DatabaseHelper.updateEntity(Customer.class, fileMap, id);
     }
@@ -57,6 +61,7 @@ public class CustomerService {
      *
      * @return
      */
+    @Transaction
     public Boolean deleteCustomer(long id) {
         return DatabaseHelper.deleteEntity(Customer.class, id);
 

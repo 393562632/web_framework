@@ -16,6 +16,6 @@ public class ConfigHeplerTest {
 
     @Test
     public void getClassSetTest() {
-        logger.error("wqer");
+        logger.info("wqer");
     }
 }

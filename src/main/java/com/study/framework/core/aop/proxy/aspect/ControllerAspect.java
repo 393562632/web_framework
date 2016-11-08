@@ -31,6 +31,6 @@ public class ControllerAspect extends AspectProxy {
     @Override
     public void after(Class<?> cls, Method method, Object[] params, Object result) throws Throwable {
         logger.debug(String.format("time %dms", System.currentTimeMillis() - begin));
-        logger.debug("---------------------begin---------------------------");
+        logger.debug("---------------------end---------------------------");
     }
 }
