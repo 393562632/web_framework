@@ -52,7 +52,63 @@ public class DatabaseHelper {
         DATA_SOURCE.setUsername(USERNAME);
     }
 
-    /*
+    /**
+     * 回滚事物
+     */
+    public static void rollbackTransaction() {
+        Connection conn = getConnection();
+        if (null != conn) {
+            try {
+                conn.rollback();
+                conn.close();
+                LOGGER.debug("事物执行失败，事物回滚成功");
+            } catch (SQLException e) {
+                LOGGER.error("rollback trancation failure", e);
+                throw new RuntimeException(e);
+            } finally {
+                CONNECTION_LOLDER.remove();
+            }
+        }
+    }
+
+    /**
+     * 开启事物
+     */
+    public static void beginTranscation() {
+        Connection conn = getConnection();
+        try {
+            LOGGER.debug("开启事物");
+            conn.setAutoCommit(false);
+        } catch (SQLException e) {
+            LOGGER.error("begin trancation failure", e);
+            throw new RuntimeException(e);
+        } finally {
+            CONNECTION_LOLDER.set(conn);
+        }
+    }
+
+    /**
+     * 提交事物
+     * @return
+     */
+    public static void commitTransaction() {
+        Connection conn = CONNECTION_LOLDER.get();
+        if(conn != null) {
+            try {
+                conn.commit();
+                conn.close();
+                LOGGER.debug("事物提交完成");
+            } catch (SQLException e) {
+                LOGGER.error("commit transaction failure", e);
+                throw new RuntimeException(e);
+            } finally {
+                CONNECTION_LOLDER.remove();
+            }
+        }
+    }
+
+
+    /**
      *  获取数据库连接
      */
     public static Connection getConnection() {

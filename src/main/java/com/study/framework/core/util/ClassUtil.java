@@ -115,7 +115,7 @@ public class ClassUtil {
         File[] files = new File(packagePath).listFiles(new FileFilter() {
             @Override
             public boolean accept(File file) {
-                return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
+                return (file.isFile() && file.getName().endsWith(".class") && !file.getName().contains("$")) || file.isDirectory();
             }
         });
 

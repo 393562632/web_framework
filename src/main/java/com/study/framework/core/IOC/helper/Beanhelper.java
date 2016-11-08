@@ -24,8 +24,8 @@ public final class Beanhelper {
         for (Class<?> beanClass : beanClassSet) {
             Object obj = ReflectionUtil.newInstance(beanClass);
             BEAN_MAP.put(beanClass, obj);
-            logger.debug(BEAN_MAP.toString());
         }
+        logger.debug(BEAN_MAP.toString());
     }
 
     /**
