@@ -133,6 +133,7 @@ public class DatabaseHelper {
         if (conn != null) {
             try {
                 conn.close();
+                LOGGER.debug("关闭事物结束。");
             } catch (SQLException e) {
                 LOGGER.error("close connection failure", e);
                 throw new RuntimeException(e);
