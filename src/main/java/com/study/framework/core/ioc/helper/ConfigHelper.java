@@ -20,6 +20,7 @@ public class ConfigHelper {
     private static final Properties CONFIG_PROPS = PropsUtil.loadProps(ConfigConstant.CONFIG_FILE);
 
     /**
+     *
      * 加载JDBC驱动
      *
      * @return

@@ -3,7 +3,6 @@ package com.study.app.step3.controller;
 import com.study.app.step3.model.Customer;
 import com.study.app.step3.service.CustomerService;
 import com.study.framework.core.annotation.Action;
-import com.study.framework.core.annotation.Aspect;
 import com.study.framework.core.annotation.Controller;
 import com.study.framework.core.annotation.Inject;
 import com.study.framework.core.ioc.bean.Data;
@@ -22,6 +21,7 @@ public class CustomerController {
 
     @Inject
     private CustomerService customerService;
+    private long id;
 
     /**
      * 进入客户列表 界面
